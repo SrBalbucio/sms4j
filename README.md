@@ -65,22 +65,6 @@ modem.open();
 modem.close();
 ```
 
-## AT commands and ZTE MF710
-
-The library uses standard 3GPP/ZTE SMS commands:
-
-- **AT** – handshake
-- **AT+CMEE=1** – verbose error codes (optional; some MF710 return "unknown", which is ignored)
-- **AT+CMGF=1** – SMS in text mode
-- **AT+CMGS="+55..."** – send SMS (then message body + Ctrl+Z)
-
-Some AT commands on the MF710 return `"unknown"` (e.g. proprietary ones like `AT+ZCDRUN`). The AT layer treats such responses as unsupported and does not break the flow for optional commands. Only **AT** and **AT+CMGF=1** are required for sending; if they fail, `open()` or `sendSms()` will fail.
-
-Reference documentation (may or may not match MF710 exactly):
-
-- [ZTE AT Command Set (PDF)](https://d1.amobbs.com/bbs_upload782111/files_44/ourdev_665123DHORCA.pdf)
-- [ZTE MG2639 AT Manual (SMS set often similar) (PDF)](https://www.mouser.com/datasheet/2/813/AT_Command_Manual_For_ZTE_Corporation_MG2639_V2_Mo-2489961.pdf)
-
 ## Integration tests
 
 Some tests require a modem and are skipped unless configured:
