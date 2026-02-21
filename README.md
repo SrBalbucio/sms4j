@@ -67,6 +67,23 @@ Reference documentation (may or may not match MF710 exactly):
 - [ZTE AT Command Set (PDF)](https://d1.amobbs.com/bbs_upload782111/files_44/ourdev_665123DHORCA.pdf)
 - [ZTE MG2639 AT Manual (SMS set often similar) (PDF)](https://www.mouser.com/datasheet/2/813/AT_Command_Manual_For_ZTE_Corporation_MG2639_V2_Mo-2489961.pdf)
 
+## Integration tests
+
+Some tests require a modem and are skipped unless configured:
+
+| Config | Source | Example |
+|--------|--------|--------|
+| Port | `sms4j.test.port` (system property) | `-Dsms4j.test.port=COM3` |
+| Phone (for send test) | `sms4j.test.phone` (property) or `SMS4J_TEST_PHONE` (env) | `-Dsms4j.test.phone=+5511999999999` |
+
+Example with real modem and SMS send:
+
+```bash
+mvn test -Dsms4j.test.port=COM3 -Dsms4j.test.phone=+5511999999999
+```
+
+Or set `SMS4J_TEST_PHONE` in the environment and only pass the port to Maven.
+
 ## Encoding
 
 SMS body is sent in **UTF-8**. The modem may use GSM 7-bit or other encoding depending on the character set; for extended characters, refer to your modem’s documentation.
