@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.mycompany.app.AppTest" time="0.033" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="24"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="F:\Projetos\sms4j\target\test-classes;F:\Projetos\sms4j\target\classes;C:\Users\srbalbucio\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\srbalbucio\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="java.vm.vendor" value="GraalVM Community"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://www.graalvm.org/"/>
+    <property name="user.timezone" value="America/Sao_Paulo"/>
+    <property name="user.country.format" value="US"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="24"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="BR"/>
+    <property name="sun.boot.library.path" value="C:\Users\srbalbucio\.jdks\graalvm-ce-24.0.1\bin"/>
+    <property name="sun.java.command" value="C:\Users\SRBALB~1\AppData\Local\Temp\surefire2015120179676696603\surefirebooter9019991464742674509.jar C:\Users\srbalbucio\AppData\Local\Temp\surefire2015120179676696603 2026-02-20T21-24-42_236-jvmRun1 surefire12580642374695339052tmp surefire_05042142014375817461tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="F:\Projetos\sms4j\target\test-classes;F:\Projetos\sms4j\target\classes;C:\Users\srbalbucio\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\srbalbucio\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\srbalbucio"/>
+    <property name="user.language" value="pt"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-04-15"/>
+    <property name="java.home" value="C:\Users\srbalbucio\.jdks\graalvm-ce-24.0.1"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="F:\Projetos\sms4j"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="jdk.internal.vm.ci.enabled" value="true"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\SRBALB~1\AppData\Local\Temp\surefire2015120179676696603\surefirebooter9019991464742674509.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="24.0.1+9-jvmci-b01"/>
+    <property name="user.name" value="srbalbucio"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="GraalVM CE 24.0.1+9.1"/>
+    <property name="localRepository" value="C:\Users\srbalbucio\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/oracle/graal/issues"/>
+    <property name="java.io.tmpdir" value="C:\Users\SRBALB~1\AppData\Local\Temp\"/>
+    <property name="java.version" value="24.0.1"/>
+    <property name="user.dir" value="F:\Projetos\sms4j"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.language.format" value="en"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Users\srbalbucio\.jdks\graalvm-ce-24.0.1\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\srbalbucio\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\srbalbucio\bin;C:\Program Files\Microsoft SDKs\Azure\CLI2\wbin;C:\Program Files (x86)\VMware\VMware Workstation\bin;C:\Users\srbalbucio\.jdks\graalvm-ce-24.0.1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\ZeroTier\One;C:\Program Files\dotnet;C:\nssm-2.24\win64;C:\protoc-28.3-win64\bin;C:\Users\srbalbucio\AppData\Local\Android\Sdk\cmdline-tools\latest\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files\Crystal;C:\Program Files (x86)\Go\bin;C:\msys64\mingw64\bin;C:\msys64\ucrt64\bin;C:\msys64;C:\Program Files\Cloudflare\Cloudflare WARP;C:\Program Files\Amazon\AWSCLIV2;C:\Program Files\AutoTranslateTool;F:\Apps\php;C:\Program Files\nodejs;F:\Apps\flutter\bin;C:\Program Files\WireGuard;C:\Program Files\Tailscale;C:\Program Files\PowerToys;C:\tizen-studio\tools;C:\Program Files\Zero Install;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Git\cmd;C:\Program Files\cursor\resources\app\bin;C:\Program Files\PuTTY;C:\tizen-studio\sdk\tools\ide\bin;C:\tizen-studio\tools\ide\bin;C:\Users\srbalbucio\AppData\Local\pnpm;C:\Users\srbalbucio\scoop\shims;C:\Users\srbalbucio\.cargo\bin;C:\Users\srbalbucio\AppData\Local\Microsoft\WindowsApps;F:\apache-maven-3.9.8\bin;C:\Users\srbalbucio\AppData\Local\Google\Cloud SDK\google-cloud-sdk\bin;C:\Users\srbalbucio\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\srbalbucio\.dotnet\tools;F:\Apps;C:\Users\srbalbucio\go\bin;C:\Users\srbalbucio\AppData\Local\Programs\Azure Data Studio\bin;F:\Apps\swigwin-4.3.0;C:\Users\srbalbucio\AppData\Local\JetBrains\Toolbox\scripts;C:\Users\srbalbucio\AppData\Local\ComposerSetup\bin;C:\Users\srbalbucio\AppData\Roaming\Composer\vendor\bin;C:\Users\srbalbucio\AppData\Roaming\npm;C:\Users\srbalbucio\.bun\bin;C:\Users\srbalbucio\AppData\Local\Microsoft\WindowsApps;C:\Users\srbalbucio\.lmstudio\bin;C:\Users\srbalbucio\AppData\Local\GitHubDesktop\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="GraalVM Community"/>
+    <property name="java.vm.version" value="24.0.1+9-jvmci-b01"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="68.0"/>
+  </properties>
+  <testcase name="shouldAnswerWithTrue" classname="com.mycompany.app.AppTest" time="0.003"/>
+</testsuite>
