@@ -1,15 +1,16 @@
 package balbucio.sms4j.modem.zte;
 
-import balbucio.sms4j.SmsSendResult;
+import java.nio.charset.StandardCharsets;
+
 import balbucio.sms4j.Sms4jException;
+import balbucio.sms4j.SmsSendResult;
 import balbucio.sms4j.at.AtChannel;
 import balbucio.sms4j.at.AtResponse;
 
-import java.nio.charset.StandardCharsets;
-
 /**
- * Driver for ZTE MF710 modem: initialization (AT, CMEE, CMGF) and sendSms via AT+CMGS.
- * Only mandatory commands (AT, CMGF=1) fail initialization; CMEE=1 is optional (some MF710 return "unknown").
+ * Driver for ZTE MF710 modem: initialization (AT, CMEE, CMGF) and sendSms via
+ * AT+CMGS. Only mandatory commands (AT, CMGF=1) fail initialization; CMEE=1 is
+ * optional (some MF710 return "unknown").
  */
 public class ZteMf710Driver {
 
@@ -24,7 +25,8 @@ public class ZteMf710Driver {
     }
 
     /**
-     * Initializes the modem: AT (handshake), AT+CMEE=1 (optional), AT+CMGF=1 (text mode). Fails if AT or CMGF fails.
+     * Initializes the modem: AT (handshake), AT+CMEE=1 (optional), AT+CMGF=1
+     * (text mode). Fails if AT or CMGF fails.
      *
      * @throws Sms4jException if AT or AT+CMGF=1 fails
      */
@@ -34,9 +36,19 @@ public class ZteMf710Driver {
             throw new Sms4jException("Modem handshake failed (AT): " + String.join(" ", at.getLines()));
         }
 
-        AtResponse cmee = atChannel.sendCommand("AT+CMEE=1");
+        AtResponse cmee = atChannel.sendCommand("AT+CMEE=2");
         if (cmee.isError() || cmee.isUnknown()) {
-            // Optional; continue
+            throw new RuntimeException("CMEE command failed: " + String.join(" ", cmee.getLines()));
+        }
+
+        AtResponse cfun = atChannel.sendCommand("AT+CFUN=1,0");
+        if (cfun.isError() || cfun.isUnknown()) {
+            throw new RuntimeException("CFUN command failed: " + String.join(" ", cmee.getLines()));
+        }
+
+        AtResponse cops = atChannel.sendCommand("at+cops?");
+        if (cops.isError() || cops.isUnknown()) {
+            throw new RuntimeException("COPS command failed: " + String.join(" ", cops.getLines()));
         }
 
         AtResponse cmgf = atChannel.sendCommand("AT+CMGF=1");
@@ -48,11 +60,12 @@ public class ZteMf710Driver {
     }
 
     /**
-     * Sends an SMS in text mode. Phone number should be in international format (e.g. +5511999999999).
-     * Message encoding is UTF-8; modem may use GSM 7-bit or UTF-16 depending on character set (see modem docs).
+     * Sends an SMS in text mode. Phone number should be in international format
+     * (e.g. +5511999999999). Message encoding is UTF-8; modem may use GSM 7-bit
+     * or UTF-16 depending on character set (see modem docs).
      *
      * @param phoneNumber destination number (with + and country code)
-     * @param message     SMS body
+     * @param message SMS body
      * @return result with success/failure and raw response
      */
     public SmsSendResult sendSms(String phoneNumber, String message) {
@@ -79,11 +92,19 @@ public class ZteMf710Driver {
     }
 
     private static String normalizeNumber(String phoneNumber) {
-        if (phoneNumber == null) return "";
+        if (phoneNumber == null) {
+            return "";
+        }
         String s = phoneNumber.trim();
-        if (s.isEmpty()) return s;
-        if (s.startsWith("+")) return s;
-        if (s.startsWith("00")) return "+" + s.substring(2);
+        if (s.isEmpty()) {
+            return s;
+        }
+        if (s.startsWith("+")) {
+            return s;
+        }
+        if (s.startsWith("00")) {
+            return "+" + s.substring(2);
+        }
         return "+" + s;
     }
 
@@ -92,7 +113,9 @@ public class ZteMf710Driver {
             if (line != null && line.startsWith("+CMGS:")) {
                 String rest = line.substring(6).trim();
                 int comma = rest.indexOf(',');
-                if (comma > 0) rest = rest.substring(0, comma);
+                if (comma > 0) {
+                    rest = rest.substring(0, comma);
+                }
                 return rest.trim();
             }
         }

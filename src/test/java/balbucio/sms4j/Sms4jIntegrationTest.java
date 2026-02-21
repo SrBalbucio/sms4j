@@ -40,7 +40,7 @@ public class Sms4jIntegrationTest {
         Sms4j modem = new Sms4j(port);
         try {
             modem.open();
-            SmsSendResult result = modem.sendSms(phone.trim(), "SMS4J integration test - " + System.currentTimeMillis());
+            SmsSendResult result = modem.sendSms(phone.trim(), "SMS4J integration test");
             Assume.assumeTrue("Send failed: " + result.getErrorMessage(), result.isSuccess());
         } finally {
             modem.close();
