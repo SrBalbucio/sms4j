@@ -24,13 +24,15 @@ for (SerialPort p : SerialPort.getCommPorts()) {
 
 ## Usage
 
+**Auto-detect driver (default):** When you only pass the port, the library sends **AT** then **ATI** to detect the modem model and selects the driver from a registry (e.g. MF710 → ZTE MF710 driver).
+
 ```java
 import balbucio.sms4j.Sms4j;
 import balbucio.sms4j.SmsSendResult;
 import balbucio.sms4j.Sms4jException;
 import balbucio.sms4j.PortInUseException;
 
-// One instance = one modem; pass the port name (e.g. "COM3" or "/dev/ttyUSB0")
+// One instance = one modem; driver is selected automatically via ATI
 Sms4j modem = new Sms4j("COM3");
 
 try {
@@ -49,6 +51,18 @@ try {
 } finally {
     modem.close();
 }
+```
+
+**Manual driver:** If auto-detect fails or you want to force a specific driver, pass a factory:
+
+```java
+import balbucio.sms4j.Sms4j;
+import balbucio.sms4j.modem.zte.ZteMf710Driver;
+
+Sms4j modem = new Sms4j("COM3", ZteMf710Driver::new);
+modem.open();
+// ...
+modem.close();
 ```
 
 ## AT commands and ZTE MF710

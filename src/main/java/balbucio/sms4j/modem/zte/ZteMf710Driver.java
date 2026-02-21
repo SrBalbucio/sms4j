@@ -6,13 +6,14 @@ import balbucio.sms4j.Sms4jException;
 import balbucio.sms4j.SmsSendResult;
 import balbucio.sms4j.at.AtChannel;
 import balbucio.sms4j.at.AtResponse;
+import balbucio.sms4j.modem.ModemDriver;
 
 /**
  * Driver for ZTE MF710 modem: initialization (AT, CMEE, CMGF) and sendSms via
  * AT+CMGS. Only mandatory commands (AT, CMGF=1) fail initialization; CMEE=1 is
  * optional (some MF710 return "unknown").
  */
-public class ZteMf710Driver {
+public class ZteMf710Driver implements ModemDriver {
 
     private static final long CMGS_TIMEOUT_MS = 30_000L;
     private static final byte CTRL_Z = 0x1A;
