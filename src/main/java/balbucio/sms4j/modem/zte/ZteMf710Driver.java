@@ -31,6 +31,7 @@ public class ZteMf710Driver implements ModemDriver {
      *
      * @throws Sms4jException if AT or AT+CMGF=1 fails
      */
+    @Override
     public void initialize() throws Sms4jException {
         AtResponse at = atChannel.sendCommand("AT");
         if (!at.isOk()) {
@@ -69,6 +70,7 @@ public class ZteMf710Driver implements ModemDriver {
      * @param message SMS body
      * @return result with success/failure and raw response
      */
+    @Override
     public SmsSendResult sendSms(String phoneNumber, String message) {
         if (!initialized) {
             return SmsSendResult.failure("Driver not initialized", "");

@@ -1,12 +1,12 @@
 package balbucio.sms4j.serial;
 
+import java.io.InputStream;
+import java.io.OutputStream;
+
 import com.fazecast.jSerialComm.SerialPort;
 
 import balbucio.sms4j.PortInUseException;
 import balbucio.sms4j.Sms4jException;
-
-import java.io.InputStream;
-import java.io.OutputStream;
 
 /**
  * Thin wrapper over jSerialComm: open/close a port by name, configure baud and timeouts,
@@ -76,10 +76,12 @@ public class SerialConnection implements SerialPortAccess {
         outputStream = null;
     }
 
+    @Override
     public InputStream getInputStream() {
         return inputStream;
     }
 
+    @Override
     public OutputStream getOutputStream() {
         return outputStream;
     }
@@ -97,6 +99,7 @@ public class SerialConnection implements SerialPortAccess {
      *
      * @param timeoutMs read timeout in ms
      */
+    @Override
     public void setReadTimeoutMs(int timeoutMs) {
         if (port != null && port.isOpen()) {
             port.setComPortTimeouts(SerialPort.TIMEOUT_READ_SEMI_BLOCKING, timeoutMs, DEFAULT_WRITE_TIMEOUT_MS);
