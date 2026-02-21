@@ -2,6 +2,8 @@
 
 Library for sending SMS via USB modem (AT commands over serial) in Java 17. One instance manages one modem on a given port. Currently supports **ZTE MF710**.
 
+[![](https://img.shields.io/badge/HyperPowered-Use%20the%20official%20repository-yellow?color=%23279BF8&cacheSeconds=3600)](https://maven.dev.hyperpowered.net/#/releases/balbucio/sms4j/sms4j/)
+
 ## Requirements
 
 - **Java 17**
